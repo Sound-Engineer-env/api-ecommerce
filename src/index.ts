@@ -18,7 +18,7 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const app = require('./routes/server.ts');
+const app = require('./routes/app.ts');
 
 
 app.listen(3001, () => {

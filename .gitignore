@@ -1,4 +1,5 @@
 #prisma
+src/config/prisma/migrations
 
 # Logs
 logs
