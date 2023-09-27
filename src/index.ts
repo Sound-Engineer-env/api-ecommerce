@@ -1,24 +1,28 @@
-import express, { Request, Response } from 'express';
-const app = express();
-const path = require('path');
 
-//settings express
-app.set('port',3000);//configura el nombre:port y un valor numerico
+//                       _oo0oo_
+//                      o8888888o
+//                      88" . "88
+//                      (| -_- |)
+//                      0\  =  /0
+//                    ___/`---'\___
+//                  .' \\|     |// '.
+//                 / \\|||  :  |||// \
+//                / _||||| -:- |||||- \
+//               |   | \\\  -  /// |   |
+//               | \_|  ''\---/''  |_/ |
+//               \  .-\__  '-'  ___/-. /
+//             ___'. .'  /--.--\  `. .'___
+//          ."" '<  `.___\_<|>_/___.' >' "".
+//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//         \  \ `_.   \_ __\ /__ _/   .-` /  /
+//     =====`-.____`.___ \_____/___.-`___.-'=====
+//                       `=---='
+//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const app = require('./routes/server.ts');
 
-//middlewares
-//express.static() = middleware para archivos estáticos
-//__dirname = directorio de ubicación actual
-//se accede a archivos HTML desde JS
-//app.use(express.static(path.join(__dirname + "\\..",'public')));
 
-//routes
-//app.get('url', Funcion) - >accede a info del servidor
-app.get('/', (req: Request, res: Response) => {
-  res.send('Bienvenidos');
+app.listen(3001, () => {
+  console.log('%s listening at 3001');
 });
 
 
-//puerto por el que escucha
-app.listen(app.get('port'),()=>{
-	console.log(`App corriendo por el puerto ${app.get('port')}78987`);   
-})
