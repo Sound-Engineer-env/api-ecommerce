@@ -1,5 +1,6 @@
 #prisma
-src/config/prisma/migrations
+**/prisma/migrations
+*.toml
 
 # Logs
 logs
@@ -68,7 +69,5 @@ web_modules/
 .env.test.local
 .env.production.local
 .env.local
-
-
 
 
