@@ -1,4 +1,3 @@
-
 //                       _oo0oo_
 //                      o8888888o
 //                      88" . "88
@@ -18,11 +17,8 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const app = require('./routes/app.ts');
-
+const app = require('./routes/app.ts')
 
 app.listen(3001, () => {
-  console.log('%s listening at 3001');
-});
-
-
+  console.log('%s listening at 3001')
+})
