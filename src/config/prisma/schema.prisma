@@ -14,7 +14,7 @@ model User {
 }
 
 model Product {
-  productId    String   @id @unique
+  productId    String     @id @default(uuid())
   name         String
   description  String?
   price        Decimal
@@ -22,8 +22,8 @@ model Product {
   imageMobile  String
   stock        Int
   // relationships 
-  categoryId   String   @unique
-  sellerId     String   @unique
+  categoryId   String
+  sellerId     String
   warrantyId   String
   //
   createdAt    DateTime @default(now())
