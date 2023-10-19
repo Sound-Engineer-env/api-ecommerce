@@ -3,7 +3,7 @@ import express, { Request, Response } from 'express';
 
 const prisma = new PrismaClient()
 
-let router = express.Router();
+const router = express.Router();
 
 router.post('/',async (req: Request, res: Response) => {
   try {
@@ -28,6 +28,6 @@ router.get("/",async (req: Request, res: Response) => {
 })
 
 
-module.exports = router;
+export default router;
 
 

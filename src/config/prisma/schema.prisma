@@ -12,3 +12,20 @@ model User {
   email String  @unique
   name  String?
 }
+
+model Product {
+  productId    String     @id @default(uuid())
+  name         String
+  description  String?
+  price        Decimal
+  imageDesktop String
+  imageMobile  String
+  stock        Int
+  // relationships 
+  categoryId   String
+  sellerId     String
+  warrantyId   String
+  //
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
