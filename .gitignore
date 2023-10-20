@@ -40,12 +40,13 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
+build/
 
 # Dependency directories
 node_modules/
 jspm_packages/
-build/
+build/**
+package-lock.json
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
@@ -54,6 +55,7 @@ web_modules/
 
 # Optional npm cache directory
 .npm
+.vscode/
 
 # Optional eslint cache
 .eslintcache

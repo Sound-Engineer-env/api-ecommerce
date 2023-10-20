@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node build/index.js",
     "dev": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts",
-    "build": "tsc"
+    "debug": "node --inspect-brk src/**/*.ts --exec ts-node src/index.ts",
+    "build": "tsc",
+    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
   },
   "prisma": {
     "schema": "src/config/prisma/schema.prisma"
@@ -16,13 +19,19 @@
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.17",
+    "@types/uuid": "^9.0.5",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "eslint": "^8.50.0",
     "nodemon": "^3.0.1",
+    "prettier": "^3.0.3",
     "prisma": "^5.3.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@prisma/client": "^5.4.1",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "uuid": "^9.0.1",
+    "@prisma/client": "^5.4.1"
   }
 }
