@@ -46,7 +46,8 @@ build/
 node_modules/
 jspm_packages/
 build/**
-package-lock.json
+
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
@@ -56,6 +57,7 @@ web_modules/
 # Optional npm cache directory
 .npm
 .vscode/
+package-lock.json
 
 # Optional eslint cache
 .eslintcache
