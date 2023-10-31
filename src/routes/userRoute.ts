@@ -1,11 +1,20 @@
-import { PrismaClient } from '@prisma/client'
-import express, { Request, Response } from 'express';
+/* import { PrismaClient } from '@prisma/client'
+import express, { Request, Response } from 'express'; */
+//const prisma = new PrismaClient()
 
-const prisma = new PrismaClient()
+import express from 'express';
+import { getUsers, createUser } from '../controllers/userController';
 
 const router = express.Router();
 
-router.post('/addUser',async (req: Request, res: Response) => {
+router.get("/list", getUsers)
+
+router.post("/create/:id", createUser)
+
+
+export default router;
+
+/* router.post('/addUser',async (req: Request, res: Response) => {
   try {
     const { name, email } = req.body;
     const user = await prisma.user.create({
@@ -95,4 +104,4 @@ router.delete("/deleteUser",async(req: Request, res: Response)=>{
 
 export default router;
 
-
+ */
