@@ -1,107 +1,16 @@
-/* import { PrismaClient } from '@prisma/client'
-import express, { Request, Response } from 'express'; */
-//const prisma = new PrismaClient()
-
 import express from 'express';
-import { getUsers, createUser } from '../controllers/userController';
+import { getUser, getUsers, createUser,deleteUser,updateUser } from '../controllers/userController';
 
 const router = express.Router();
 
-router.get("/list", getUsers)
+router.get("/user/:id", getUser)
 
-router.post("/create/:id", createUser)
+router.get("/list-users", getUsers)
 
+router.post("/create-user", createUser)
 
-export default router;
+router.delete("/delete-user/:id", deleteUser)
 
-/* router.post('/addUser',async (req: Request, res: Response) => {
-  try {
-    const { name, email } = req.body;
-    const user = await prisma.user.create({
-      data: {
-        name,
-        email,
-      },
-    });
-    res.json(user);
-  } catch (error) {
-    console.error('Error creating user:', error);
-    res.status(500).json({ error: 'Error creating user' });
-  }
-});
-
-
-router.get("/getUsers",async (req: Request, res: Response) => {
-    const users = await prisma.user.findMany()
-    res.json(users)
-})
-
-router.post("/getUser",async (req: Request, res: Response) => {
-    
-  try {
-    const { id } = req.body;
-      // Get one User    
-    const user = await prisma.user.findUnique({
-      where: {        
-        id: id,
-      },
-    });
-
-    res.json(user)
-
-  }catch (error) {
-    console.error('Error getting user:', error);
-    res.status(500).json({ error: 'Error getting user' });
-  }  
-  
-})
-
-
-router.patch("/updateUser",async(req: Request, res: Response)=>{
-  
-  try{
-    const { id , name, email} = req.body;
-    const updateUser = await prisma.user.update({
-      where:{
-        id:id,
-      },
-      data:{
-        name: name,
-        email: email,
-      },
-    })
-
-    res.json("user with id: " + id+ " was updated ");
-
-  }
-  catch(error){
-    console.error('Error updating user:', error);
-    res.status(500).json({ error: 'Error updating user' });
-  }
-
-})
-
-
-router.delete("/deleteUser",async(req: Request, res: Response)=>{
-  
-  try{
-    const { id } = req.body;
-    const deleteUser = await prisma.user.delete({
-      where:{
-        id:id,
-      },      
-    })
-
-    res.json("user with id: " + id + " was deleted");
-
-  }
-  catch(error){
-    console.error('Error deleting user:', error);
-    res.status(500).json({ error: 'Error deleting user' });
-  }
-
-})
+router.put("/update-user/:id", updateUser)
 
 export default router;
-
- */

@@ -1,32 +1,66 @@
-import { createUserDB, getUsersList } from "../repositories/userRepository";
-import { User } from "@prisma/client";
-import { v4 as uuidv4 } from 'uuid';
-
+import { createUserDB, getUsersListDB, getUserDB ,updateUserDB, deleteUserDB} from "../repositories/userRepository";
+import crypto from "crypto"
+import { User } from "@prisma/client"
 
 
 export function getAllUsers() {
 
-    return getUsersList();
-
+    return getUsersListDB();
 }
 
-export async function createNewUser(body: any, idSeller: string, category_id: string) {
-    // logica 
+export async function getOneUser(idUser: string) {
+
+    try {        
+       
+        return await getUserDB(idUser);
+
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+export async function createNewUser(body:any) {    
 
     try {
-        const { name, email } = body
-        
+
+        const {email,name} = body;             
+
         const data : User = {
-            id : uuidv4(),
+            id : crypto.randomUUID(),
             email: email,
             name:name
-
         }
-            
-        return await createUserDB(data)
+
+        return await createUserDB(data)      
+        
     } catch (error) {
         throw error;
     }
    
+}
 
+export async function updateOneUser(body:any,idUser:string) {    
+
+    try {
+        
+        const data = body as User;
+        return await updateUserDB(idUser,data)      
+        
+    } catch (error) {
+        throw error;
+    }
+   
+}
+
+export async function deleteOneUser(idUser:string) {    
+
+    try {
+     
+        return await deleteUserDB(idUser)      
+        
+    } catch (error) {
+        throw error;
+    }
+   
 }
