@@ -1,7 +1,7 @@
 
 import { createProductDB, getProductList, updateProduct, deleteProduct } from "../repositories/productRepository";
-import { Product } from "@prisma/client";
 import crypto from "crypto"
+import { ProductDB } from "../models/ProductDB";
 
 
 export function getAllProducts() {
@@ -15,7 +15,7 @@ export async function createNewProduct(body: any, idSeller: string) {
     try {
         const { name, description, price, imageDesktop, imageMobile, stock, categoryId, warrantyId} = body
         
-        const data : Product = {
+        const data : ProductDB = {
             productId : crypto.randomUUID(),
             sellerId : idSeller,
             description: description,
@@ -39,7 +39,7 @@ export async function createNewProduct(body: any, idSeller: string) {
 
 export async function editProduct(body: any, idSeller: string, idProduct: string) {
     try {
-        const data = body as Product;
+        const data = body as ProductDB;
 
         return await updateProduct(idProduct, data, idSeller)
     } catch (error) {

@@ -1,9 +1,10 @@
 import { PrismaClient, Product } from '@prisma/client'
+import { ProductDB } from '../models/ProductDB';
 
 const prisma = new PrismaClient()
 
 
-export async function getProductList() : Promise<Product[]> {
+export async function getProductList() : Promise<ProductDB[]> {
 
     try {
         const productsPrisma = await prisma.product.findMany();
@@ -16,7 +17,7 @@ export async function getProductList() : Promise<Product[]> {
     
 }
 
-export async function createProductDB (product: Product) : Promise<Product>  {
+export async function createProductDB (product: ProductDB) : Promise<ProductDB>  {
     try {
       
         const result = await prisma.product.create({
@@ -29,7 +30,7 @@ export async function createProductDB (product: Product) : Promise<Product>  {
     }
 }
 
-export async function deleteProduct(idProduct: string, idSeller: string) : Promise<Product> {
+export async function deleteProduct(idProduct: string, idSeller: string) : Promise<ProductDB> {
     try {
         return await prisma.product.delete({
             where: {
@@ -42,7 +43,7 @@ export async function deleteProduct(idProduct: string, idSeller: string) : Promi
     }
 }
 
-export async function updateProduct(idProduct : string, dataProduct: Product, idSeller: string) : Promise<Product> {
+export async function updateProduct(idProduct : string, dataProduct: ProductDB, idSeller: string) : Promise<ProductDB> {
     try {
         return await prisma.product.update({
             where : { 
